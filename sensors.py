@@ -76,10 +76,10 @@ while True:
 
 	#Print values
 	print("{: <30}".format("MAGNETIC FIELD") + "| " + "{: <30}".format("ENVIRONMENTAL CONDITIONS") + "|")
-	print("X-Axis: {}".format(xMag).ljust(30) + "| " + "Temperature (C): {}".format(round(bme280.temperature, 2)).ljust(30) + "|")
-	print("Y-axis: {}".format(yMag).ljust(30) + "| " + "Humidity (%): {}".format(round(bme280.humidity, 2)).ljust(30) + "|")
-	print("Z-axis: {}".format(zMag).ljust(30) + "| " + "Pressure (kPa): {}".format(round((bme280.pressure*0.1), 2)).ljust(30) + "|")
-	print("Magnetic?: {}".format(Mag).ljust(30) + "| " + "Altitude (m): {}".format(round(bme280.altitude, 2)).ljust(30) + "|")
+	print("X-Axis:     {}".format(xMag).ljust(30) + "| " + "Temperature (C):   {}".format(round(bme280.temperature, 2)).ljust(30) + "|")
+	print("Y-axis:     {}".format(yMag).ljust(30) + "| " + "Humidity    (%):   {}".format(round(bme280.humidity, 2)).ljust(30) + "|")
+	print("Z-axis:     {}".format(zMag).ljust(30) + "| " + "Pressure  (kPa):   {}".format(round((bme280.pressure*0.1), 2)).ljust(30) + "|")
+	print("Magnetic?:  {}".format(Mag).ljust(30) + "| " + "Altitude    (m):   {}".format(round(bme280.altitude, 2)).ljust(30) + "|")
 	print("\n")
 
 	time.sleep(1)
