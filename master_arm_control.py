@@ -37,6 +37,31 @@ ssc32.write("#5P2300T1000\r".encode())
 #Wrist up down = 3
 #Wrist rotate = 4
 #Gripper = 5
+#
+#
+#controls
+#   Base	left right
+#   shoulder
+#	(w) - rotate up
+#	(s) - rotate down
+#
+#
+#
+#    Elbow
+#	(e) - rotate up
+#	(d) - rotate down
+
+
+#    Wrist
+#	(q) - rotate up
+#	(a) - rotate down
+#	(,) - rotate counter-clockwise
+#	(.) - rotate clockwise
+
+
+#    Gripper
+#	(-) - close gripper
+#	(=) - open gripper
 #######################################
 
 
