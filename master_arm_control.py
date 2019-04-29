@@ -21,14 +21,14 @@ start1=1900
 start2=2000
 start3=1100
 start4=1500
-start5=2500
+start5=2300
 
 #center servo
-ssc32.write("#1P1900\r".encode())
-ssc32.write("#2P2000\r".encode())
-ssc32.write("#3P1100\r".encode())
-ssc32.write("#4P1500\r".encode())
-ssc32.write("#5P2500\r".encode())
+ssc32.write("#1P1900T1000\r".encode())
+ssc32.write("#2P2000T1000\r".encode())
+ssc32.write("#3P1100T1000\r".encode())
+ssc32.write("#4P1500T1000\r".encode())
+ssc32.write("#5P2300T1000\r".encode())
 ######################################
 #Wiring info:
 #Continuous Servo (Base) = 0
@@ -51,30 +51,30 @@ def on_press(key):
     
     #print('{0} pressed'.format(
         #key))
-    #Baud rate test
-    if key == Key.up:
-        print("Baud Rate * 10 ")
-        command = "R4\r"
-        ssc32.write(command.encode())
-        ssc32.read(command.encode())
+
     #reset
     if key == Key.down:
         print("Master Reset")
-        ssc32.write("#1P1900\r".encode())
-        ssc32.write("#2P2000\r".encode())
-        ssc32.write("#3P1100\r".encode())
-        ssc32.write("#4P1500\r".encode())
-        ssc32.write("#5P2500\r".encode())
+        start1 = 1900
+        start2 = 2000
+        start3 = 1100
+        start4 = 1500
+        start5 = 2300
+        ssc32.write("#1P1900T1000\r".encode())
+        ssc32.write("#2P2000T1000\r".encode())
+        ssc32.write("#3P1100T1000\r".encode())
+        ssc32.write("#4P1500T1000\r".encode())
+        ssc32.write("#5P2300T1000\r".encode())
     ############################SERVO CONTROL###############################
 
     #servo 0 continuous
     if key == Key.left:
         print("left")
-        command = "#0P1000\r"
+        command = "#0P1300\r"
         ssc32.write(command.encode())
     if key == Key.right:
         print("right")
-        command = "#0P2000\r"
+        command = "#0P1700\r"
         ssc32.write(command.encode())
     if key == Key.space:
         print("stop")
@@ -96,7 +96,7 @@ def on_press(key):
         command = "#1P" + str(start1)+ "\r"
         ssc32.write(command.encode())
 
-    #elbow
+    #elbow pin2
     if key == KeyCode.from_char('d'):
         start2 += 50
         if start2 == 2450:
@@ -111,7 +111,8 @@ def on_press(key):
         print(start2)
         command = "#2P" + str(start2)+ "\r"
         ssc32.write(command.encode())
-    #wrist up down
+        
+    #wrist up down pin 4
     if key == KeyCode.from_char('q'):
         start3 += 50
         if start3 == 2450:
@@ -127,7 +128,7 @@ def on_press(key):
         command = "#3P" + str(start3)+ "\r"
         ssc32.write(command.encode())
         
-    #wrist rotate
+    #wrist rotate pin 4
     if key == KeyCode.from_char(','):
         start4 += 50
         if start4 == 2450:
@@ -143,7 +144,7 @@ def on_press(key):
         command = "#4P" + str(start4)+ "\r"
         ssc32.write(command.encode())
         
-    #gripper
+    #gripper pin 5
     if key == KeyCode.from_char('='):
         start5 += 50
         if start5 == 2450:
